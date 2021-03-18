@@ -32,5 +32,16 @@ insert into tasks values (4,1, 'Code Website', '2021-04-22');
 alter table tasks modify task_id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 
+create view project_tasks
+as
+select p.project_id, p.title as project_title, p.category, t.task_id, t.title as task_title, t.due_date
+from projects p join tasks t using (project_id);
 
 
+create table users (
+                       user_id int(11) PRIMARY KEY AUTO_INCREMENT,
+                       email varchar(50) not null UNIQUE,
+                       password varchar(300) not null
+);
+
+insert into users (email, password) values ('mkotsovoulou@acg.edu', '123');

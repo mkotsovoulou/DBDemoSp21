@@ -10,3 +10,16 @@
 ?>
 
 <a href="add_project.php"> Add a new project</a>
+
+
+<h1> Task List</h1>
+<?php
+
+$task_array = get_tasks();
+foreach ($task_array as $task) {
+    echo $task["project_id"]. ": " . $task["title"] . " " . $task["due_date"] . "</br>";
+}
+
+?>
+
+<a href="add_task.php"> Add a new task</a>

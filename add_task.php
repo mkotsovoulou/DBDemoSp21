@@ -17,6 +17,12 @@
     </style>
 </head>
 <body>
+
+<?php
+include('inc/connection.php');
+$query = $db->query("select project_id, title from projects");
+$projects_array = $query->fetchAll(PDO::FETCH_ASSOC);
+?>
 <div class="container">
 <h1> Add a new Task to a Project </h1>
 <div class="form-frame">
@@ -33,8 +39,12 @@
     <div class="form-group m-2">
         <label for="project_id">Select Project</label>
         <select class="form-control" id="project_id" name="project_id">
-<?php
-?>
+            <?php
+            foreach ($projects_array as $project) {   ?>
+            <option value="<?php echo $project['project_id'];?>">
+<?php echo  $project['title']; ?>       </option>
+<?php } ?>
+
      </select>
     </div>
     <button type="submit" class="btn btn-primary m-2">Submit</button>

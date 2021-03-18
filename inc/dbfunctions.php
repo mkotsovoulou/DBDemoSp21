@@ -13,6 +13,34 @@ function get_projects()
     }
 }
 
+
+function get_tasks()
+{
+    include('inc/connection.php');
+    try {
+        $query = $db->query("select task_id, project_id, title, due_date from tasks");
+        $tasks_array = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $tasks_array;
+    } catch (Exception $e) {
+        echo 'Select error' . $e->getMessage() . "</br>";
+        return array();
+    }
+}
+
+function get_tasks_by_project($project_id)
+{
+    include('inc/connection.php');
+    try {
+        $query = $db->prepare("select task_id, title, due_date from tasks where project_id = ?");
+        $query->bindValue(1, $project_id);
+        $projects_array = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $projects_array;
+    } catch (Exception $e) {
+        echo 'Select error' . $e->getMessage() . "</br>";
+        return array();
+    }
+}
+
 function add_project($title, $category) {
     include('inc/connection.php');
 try {
