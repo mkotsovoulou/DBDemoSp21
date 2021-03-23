@@ -6,12 +6,8 @@ if ( $_SESSION["isAdmin"]==0 ) {
 else {
 ?>
 
-
 <h1> DELETE USERS</h1>
 
-
-
 <?php
-
 }
 ?>
