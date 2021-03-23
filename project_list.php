@@ -1,5 +1,9 @@
 <h1> Project List</h1>
 <?php
+session_start();
+if (isset($_SESSION["email"])) {
+    echo 'you are:' . $_SESSION["email"] . '<br>';
+}
 
    include('inc/dbfunctions.php');
    $projects_array = get_projects();

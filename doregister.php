@@ -1,6 +1,5 @@
 <h1> info 2</h1>
 <?php
-
 $email = $_POST['email'];
 $password = $_POST['password'];
 include('inc/connection.php');

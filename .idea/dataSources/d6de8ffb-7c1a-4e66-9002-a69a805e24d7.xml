@@ -1102,46 +1102,51 @@
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="345" parent="329" name="email">
+    <column id="345" parent="329" name="admin">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="346" parent="329" name="email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="346" parent="329" name="PRIMARY">
+    <key id="347" parent="329" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="347" parent="329" name="email">
+    <key id="348" parent="329" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
-    <column id="348" parent="330" name="project_id">
+    <column id="349" parent="330" name="project_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="349" parent="330" name="project_title">
+    <column id="350" parent="330" name="project_title">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="350" parent="330" name="category">
+    <column id="351" parent="330" name="category">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="351" parent="330" name="task_id">
+    <column id="352" parent="330" name="task_id">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="352" parent="330" name="task_title">
+    <column id="353" parent="330" name="task_title">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="353" parent="330" name="due_date">
+    <column id="354" parent="330" name="due_date">
       <Position>6</Position>
       <DataType>date|0s</DataType>
     </column>
