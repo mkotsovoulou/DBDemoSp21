@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form id="searchForm">
+    <input type="text" id="title" name="title"/>
+    <button type="submit">Search</button>
+</form>
+
+    <div class="container">
+        <table id="resultsTable" border="1" >
+            <thead>
+            <tr>
+                <th width="20%">project id</th>
+                <th width="20%">title</th>
+                <th width="30%">category</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+
+        $('#searchForm').submit(function (e) {
+            e.preventDefault();
+
+            var title = $('#title').val();
+
+            $.ajax({
+                type:"GET",
+                url:"search_project.php",
+                dataType: 'JSON',
+                data: {
+                    p_title : title,
+                }
+            }).done(function (response) {
+                  var count=response.length;
+                  console.log(count);
+                  $("#resultsTable tbody").html("");
+                      for (var i = 0; i < count; i++) {
+                          var project_id = response[i].project_id;
+                          var title = response[i].title;
+                          var category = response[i].category;
+
+                          var tr_str = "<tr>" +
+                              "<td align='center'>" + project_id + "</td>" +
+                              "<td align='center'>" + title + "</td>" +
+                              "<td align='center'>" + category + "</td>" +
+                              "</tr>";
+
+                          $("#resultsTable tbody").append(tr_str);
+                      }
+            });
+        });
+    });
+</script>
+</body>
+</html>

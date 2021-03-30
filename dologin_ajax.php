@@ -15,8 +15,6 @@ $userdetails=$query->fetchAll(PDO::FETCH_ASSOC);
 
 $rows=$query->rowCount();
 
-
-
 /* HEADER REQUIRED FOR AJAX TO PROCESS THE RESULTS AS JSON */
 header("Content-Type: application/json");
 $msg = array();

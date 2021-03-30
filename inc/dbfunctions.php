@@ -4,7 +4,7 @@ function get_projects()
 {
     include('inc/connection.php');
     try {
-        $query = $db->query("select project_id, title, category from projects");
+        $query = $db->query("select project_id, title, category from projects where title like '%Cre%'");
         $projects_array = $query->fetchAll(PDO::FETCH_ASSOC);
         return $projects_array;
     } catch (Exception $e) {
